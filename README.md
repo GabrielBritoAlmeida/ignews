@@ -4,6 +4,10 @@
 
 ### Introdução
 
+Projeto para estudos com NextJs.
+Sistema completo para consumir postes pagos.
+
+
 ### Pacotes externos
 
 [Typescript](https://www.typescriptlang.org/)

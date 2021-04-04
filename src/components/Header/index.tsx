@@ -1,15 +1,18 @@
-import styles from './styles.module.scss'
+import { SignInButton } from "components/SignInButton";
+import styles from "./styles.module.scss";
 
 export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <img src="/images/logo.svg" alt="logo escrito ignews" />
-      
+
         <nav>
-            <a className={styles.active}>Home</a>
-            <a >Posts</a>
+          <a className={styles.active}>Home</a>
+          <a>Posts</a>
         </nav>
+
+        <SignInButton />
       </div>
     </header>
   );

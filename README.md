@@ -1,6 +1,6 @@
 # Ignews
 
-![https://github.com/GabrielBritoAlmeida/ignews/blob/main/public/readme/home.png](home.png)
+![https://github.com/GabrielBritoAlmeida/ignews/blob/main/public/readme/home.png](https://github.com/GabrielBritoAlmeida/ignews/blob/main/public/readme/home.png)
 
 ### Introdução
 

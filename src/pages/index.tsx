@@ -1,16 +1,7 @@
-// import styles from "styles/home.module.scss";
-import Head from "next/head";
+import { HomeTemplate } from "templates/Home";
 
 function Home() {
-  return (
-    <>
-      <Head>
-        <title>ig.news</title>
-      </Head>
-
-      <h1 >Hello NextJs</h1>
-    </>
-  );
+  return <HomeTemplate />;
 }
 
 export default Home;

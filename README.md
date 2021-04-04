@@ -1,6 +1,6 @@
 # Ignews
 
-![/redme/home.png](home.png)
+![https://github.com/GabrielBritoAlmeida/ignews/blob/main/public/readme/home.png](home.png)
 
 ### Introdução
 

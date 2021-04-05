@@ -1,5 +1,5 @@
-import { SignInButton } from "components/SignInButton";
-import styles from "./styles.module.scss";
+import { SignInButton } from 'components/SignInButton'
+import styles from './styles.module.scss'
 
 export function Header() {
   return (
@@ -15,5 +15,5 @@ export function Header() {
         <SignInButton />
       </div>
     </header>
-  );
+  )
 }

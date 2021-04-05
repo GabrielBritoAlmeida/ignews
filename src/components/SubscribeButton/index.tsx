@@ -1,7 +1,7 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
 interface SubscribeButtonProps {
-  priceId: string;
+  priceId: string
 }
 
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
@@ -9,5 +9,5 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
     <button type="button" className={styles.subscribeButton}>
       Subscribe now
     </button>
-  );
+  )
 }

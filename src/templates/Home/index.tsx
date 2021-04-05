@@ -1,14 +1,14 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-import Head from "next/head";
-import { SubscribeButton } from "components/SubscribeButton";
-import {formatMoney } from 'utils/formatMoney'
+import Head from 'next/head'
+import { SubscribeButton } from 'components/SubscribeButton'
+import { formatMoney } from 'utils/formatMoney'
 
 export interface HomeTemplateProps {
   product: {
-    priceId: string;
-    amount: number;
-  };
+    priceId: string
+    amount: number
+  }
 }
 
 export function HomeTemplate({ product }: HomeTemplateProps) {
@@ -31,11 +31,11 @@ export function HomeTemplate({ product }: HomeTemplateProps) {
             <span>for {formatMoney(product.amount)} month</span>
           </p>
 
-          <SubscribeButton priceId={product.priceId}/>
+          <SubscribeButton priceId={product.priceId} />
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
     </>
-  );
+  )
 }

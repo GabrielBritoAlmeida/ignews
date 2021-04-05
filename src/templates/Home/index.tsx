@@ -2,8 +2,16 @@ import styles from "./styles.module.scss";
 
 import Head from "next/head";
 import { SubscribeButton } from "components/SubscribeButton";
+import {formatMoney } from 'utils/formatMoney'
 
-export function HomeTemplate() {
+export interface HomeTemplateProps {
+  product: {
+    priceId: string;
+    amount: number;
+  };
+}
+
+export function HomeTemplate({ product }: HomeTemplateProps) {
   return (
     <>
       <Head>
@@ -20,10 +28,10 @@ export function HomeTemplate() {
 
           <p>
             Get access to all the publication <br />
-            <span>for $9.90 month</span>
+            <span>for {formatMoney(product.amount)} month</span>
           </p>
 
-          <SubscribeButton />
+          <SubscribeButton priceId={product.priceId}/>
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />

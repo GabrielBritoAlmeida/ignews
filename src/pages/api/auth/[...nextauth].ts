@@ -1,4 +1,4 @@
-import { query } from 'faunadb'
+import { query as q } from 'faunadb'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
@@ -18,8 +18,15 @@ export default NextAuth({
 
       try {
         await fauna.query(
-          query.Create(query.Collection('users'), { data: { email } })
+          q.If(
+            q.Not(
+              q.Exists(q.Match(q.Index('user_by_email'), q.Casefold(email)))
+            ),
+            q.Create(q.Collection('users'), { data: { email } }),
+            q.Get(q.Match(q.Index('user_by_email'), q.Casefold(email)))
+          )
         )
+
         return true
       } catch (error) {
         console.error('Error login: ', error)

@@ -13,7 +13,7 @@ export function SignInButton() {
       type="button"
       className={styles.signButton}
     >
-      <FaGithub color="#04d361" className={styles.closeIcon} />{' '}
+      <FaGithub color="#04d361" className={styles.closeIcon} />
       {session.user.name} <FiX color="#737380" />
     </button>
   ) : (

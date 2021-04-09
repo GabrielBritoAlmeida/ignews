@@ -2,9 +2,30 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { getPrismicClient } from 'services/prismic'
 import Prismic from '@prismicio/client'
+import { RichText } from 'prismic-dom'
+
 import styles from './styles.module.scss'
 
-export default function Posts() {
+interface Post {
+  slug: string
+  title: string
+  except: string
+  updateAt: string
+}
+
+interface PostsProps {
+  posts: Post[]
+}
+
+export default function Posts({ posts }: PostsProps) {
+  const listPosts = posts.map((post) => (
+    <a key={post.slug}>
+      <time>{post.updateAt}</time>
+      <strong>{post.title}</strong>
+      <p>{post.except}</p>
+    </a>
+  ))
+
   return (
     <>
       <Head>
@@ -12,40 +33,7 @@ export default function Posts() {
       </Head>
 
       <main className={styles.container}>
-        <div className={styles.posts}>
-          <a>
-            <time>12 março de 2021</time>
-
-            <strong>Creating a Monorepo with Lerna & Yarn Workspaces</strong>
-
-            <p>
-              In this guide, you will learn how to create a Monorepo to manage
-              multiple packages with a shared build, test, and release process.
-            </p>
-          </a>
-
-          <a>
-            <time>12 março de 2021</time>
-
-            <strong>Creating a Monorepo with Lerna & Yarn Workspaces</strong>
-
-            <p>
-              In this guide, you will learn how to create a Monorepo to manage
-              multiple packages with a shared build, test, and release process.
-            </p>
-          </a>
-
-          <a>
-            <time>12 março de 2021</time>
-
-            <strong>Creating a Monorepo with Lerna & Yarn Workspaces</strong>
-
-            <p>
-              In this guide, you will learn how to create a Monorepo to manage
-              multiple packages with a shared build, test, and release process.
-            </p>
-          </a>
-        </div>
+        <div className={styles.posts}>{listPosts}</div>
       </main>
     </>
   )
@@ -61,9 +49,28 @@ export const getStaticProps: GetStaticProps = async () => {
       pageSize: 100
     }
   )
-  console.log(JSON.stringify(response, null, 2))
+
+  const posts = response.results.map((post) => {
+    return {
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      except:
+        post.data.content.find((content) => content.type === 'paragraph')
+          ?.text ?? '',
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        'pt-BR',
+        {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        }
+      )
+    }
+  })
 
   return {
-    props: {}
+    props: {
+      posts
+    }
   }
 }

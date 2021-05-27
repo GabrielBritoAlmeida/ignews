@@ -3077,11 +3077,6 @@ jest-docblock@^27.0.1:
   dependencies:
     detect-newline "^3.0.0"
 
-jest-dom@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/jest-dom/-/jest-dom-4.0.0.tgz#94eba3cbc6576e7bd6821867c92d176de28920eb"
-  integrity sha512-gBxYZlZB1Jgvf2gP2pRfjjUWF8woGBHj/g5rAQgFPB/0K2atGuhVcPO+BItyjWeKg9zM+dokgcMOH01vrWVMFA==
-
 jest-each@^27.0.1:
   version "27.0.1"
   resolved "https://registry.yarnpkg.com/jest-each/-/jest-each-27.0.1.tgz#37fa20b7d809b29d4349d8eb7d01f17c2feeab10"
